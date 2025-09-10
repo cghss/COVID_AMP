@@ -2,11 +2,11 @@
 
 The COVID Analysis and Mapping of Policies (AMP) is part of the COVID-Local suite of free resources developed for local decision-makers. The COVID AMP Policy and Plan Database includes a library of polices from US states and the District of Columbia, US local governments (counties, cities) and national governments globally.
 
-COVID AMP is an on-going research effort with data collection performed by researchers at the Georgetown University Center for Global Health Science and Security and Talus Analytics. As of July 2021, data are most complete for US states, and county-level policy data are available for select localities. This work continues to expand to include new county- and state-level data across the US and country-level data globally, however the addition of new policies stopped on June 1, 2021. In addition, a dataset of COVID-19-related plans published by US states and other organizations is also being collated and is available on the site.
+COVID AMP is an on-going research effort with data collection performed by researchers at the Georgetown University Center for Global Health Science and Security. As of July 2021, data are most complete for US states, and county-level policy data are available for select localities. This work continues to expand to include new county- and state-level data across the US and country-level data globally, however the addition of new policies stopped on June 1, 2021. In addition, a dataset of COVID-19-related plans published by US states and other organizations is also being collated and is available on the site.
 
 The site includes:
 
-A searchable, filterable database of all policies and plans in the dataset, including legal and governance analysis. The complete dataset can be downloaded in an Excel file format directly from the site. If you are interested in establishing an API or other direct access, please contact us at outbreaks@georgetown.edu or info@talusanalytics.com.
+A searchable, filterable database of all policies and plans in the dataset, including legal and governance analysis. The complete dataset can be downloaded in an Excel file format directly from the site. If you are interested in establishing an API or other direct access, please contact us at globalhealthsecurity@georgetown.edu. 
 An interactive policy map providing geospatial visualization of the policies implemented over time. Policies can be viewed by any combination of key policy types or by “Distancing level” (see Methods below for detailed information about these categories). All policy maps include COVID-19 case counts, over time, either as an average of new cases in the last 7 days or cumulative cases.
 An interactive location profile that displays policies and caseload over time. Each state or country that enacted policies has a page displaying a timeline of cases overlaid with policies and a breakdown of the policies enacted, by policy type (e.g., social distancing, enabling and relief, etc.).
 An interactive tool to explore the intersection between policies and caseload for each US state. The tool also provides the ability to:
@@ -14,7 +14,7 @@ Compare the effect of not having implemented any policies
 Evaluate new policy options given conditions in a state
 This work and underlying AMP dataset are available for use under the Creative Commons Attribution By License agreement (https://creativecommons.org/licenses/by/4.0/), with appropriate reference and acknowledgement of the original research team, as available under the About section of https://covid-local.org and https://covidamp.org.
 
-In addition to direct download from the site, we are happy to work with your team to provide automated access via API or other data sharing method. Please contact us at info@talusanalytics.com for more information.
+In addition to direct download from the site, we are happy to work with your team to provide automated access via API or other data sharing method. Please contact us at globalhealthsecurity@georgetown.edu for more information.
 
 **COVID-19 policy database documentation**
 _Policy data coding process_
