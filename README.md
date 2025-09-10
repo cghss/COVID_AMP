@@ -18,6 +18,7 @@ In addition to direct download from the site, we are happy to work with your tea
 
 **COVID-19 policy database documentation**
 _Policy data coding process_
+
 To collect the data, the team first developed a custom data taxonomy and data dictionary to define key metadata and organize the dataset. These data are populated directly by the policy coding team into Airtable and transferred via API into a database on Amazon Web Services. These data may be accessed directly from the backend database via API upon request. The data dictionary with complete description of all metadata fields can be downloaded as an Excel file here. The complete dataset can be downloaded from the Policy data page from covidamp.org/data.
 
 For the purpose of this effort, policies are defined as government-issued and backed by legal authority or precedent. Policies are coded and tagged with the relevant metadata manually. Each policy is tagged with a series of descriptive attributes based on a review of the policy language, including (this is a representative subset – see data dictionary for full description of data fields):
@@ -35,6 +36,7 @@ Legal experts review each policy following entry into the dataset to identify an
 Policies listed under the Omicron response include all travel restriction policies issued on or after November 26, 2021.
 
 _COVID-19 plan database documentation_
+
 Plans included in the dataset are documents issued by a government, non-profit, for-profit, or higher education institution that provide recommended actions or guidelines, but do not necessarily have legal basis or authority.
 
 Plans are recorded under a different coding scheme than policies, because plans in AMP are not required to be government-issued or backed by legal authority or precedent. In addition to providing a PDF of the plan, data captured for plans includes (this is a representative subset – see data dictionary for a full description of data fields):
@@ -105,6 +107,7 @@ These conditions are similar to those prior to the pandemic for any policy relat
 
 
 _Visualizing policies in place, by category, over time_
+
 To visualize policies of different types in effect over time, the map queries the policy dataset by date and location. Policies can be viewed by category on the map, including any combination of policies and/or their subcategories:
 
 - Social distancing
@@ -119,16 +122,21 @@ To visualize policies of different types in effect over time, the map queries th
 Policies can be filtered by single categories (e.g., social distancing) or multiple sub-categories (e.g., isolation, lockdown, quarantine) to view what kinds of policies were in effect or not in a given location on the selected date, and how many. Other categories include private sector closures, school closures, mass gatherings, and more. On the map, darker-shaded locations have more policies in effect on the selected date belonging to the selected category or sub-categories, with the darkest location having the most.
 
 _Location profiles_
+
 To view how the policy response unfolded over the course of the pandemic, each country and U.S. state where policies were collected has a specific page devoted to that location’s policy environment. At the top of the page, a pandemic timeline of the location’s cases is overlaid with policies, using the 7-day moving average of daily COVID-19 cases (from the New York Times Coronavirus (Covid-19) Dataset) and the number of policies enacted on each day in the selected location. A bar graph below the timeline shows the breakdown of how many policies in each policy category were enacted, active, or expired on a given date. By default, these figures reflect the most recent date available, but users can select a specific date by dragging or using arrow keys to move the blue date slider. Selecting a new date adjusts the bar chart to reflect the policy environment up to that point and displays a pop-up with how many policies from each category were enacted on that day. Clicking on a policy category in the pop-up brings up a modal with information on each policy that was enacted. Below the bar chart, users can also explore and view any policy enacted by that location using a search and filter tool.
 
 _COVID caseload data_
+
 _US map and social distancing policy model_
+
 US state-level COVID-19 caseload data, new cases in the last 7 days and cumulative cases, are sourced from the New York Times Coronavirus (Covid-19) Data in the United States (https://github.com/nytimes/covid-19-data). These data include confirmed cases and, where captured by public health agencies, probable cases. Data are updated daily. These data are collated by the New York Times on the basis of data from state and local health agencies and licensed under the Creative Commons Attribution-Non Commercial 4.0 International license.
 
 _Global map_
+
 Global COVID-19 caseload data, new cases in the last 7 days and cumulative cases, are sourced from the COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University which holds the copyright to all data (https://github.com/CSSEGISandData/COVID-19). These data include only confirmed cases and are updated daily. Additional information about the collation of the data by the Johns Hopkins University is available from the GitHub repository linked above.
 
 _Social distancing policy model_
+
 The COVID AMP policy model supports users in evaluating the impact of policies on the outbreak – a visualization of when (1) policies were implemented in each state relative to their actual caseload and fatalities, (2) predictive analysis for how future policy implementation will impact caseload, and (3) an analysis of what would have been had no mitigation policies been implemented. The social distancing policy model includes actual and modeled data for COVID-19 cases, COVID-related hospitalizations, ICU patient count (specifically for COVID complications), and deaths at daily resolution. These data about the dynamics of COVID outbreaks are accompanied by key designations of policies related to social distancing (i.e., stay-at-home, safer-at-home, partially open) captured from policies in place at different points in the outbreak (see “Visualizing distancing level,” above). For points in the future, users can add new social distancing policies and evaluate their relative impact on the modeled outcome. The AMP social distancing policy model is currently available for US states at state scale.
 
 For past dates, cases are sourced from confirmed and probable cases (see ‘COVID caseload data’ above) data from March 1 to the most recent data update. Because case data is cumulative, we calculate “active” cases by assuming patients recover 13 days after their case is confirmed by testing and deriving deaths from those cases. We assume approximately 25% of total confirmed cases are hospitalized with equates to ~7% of total cases (symptomatic and asymptomatic.) For all dates past the most recent case update, all data for cases, hospitalizations, ICU patient counts, and deaths are modeled using the approach below as seeded with the current case counts from reported actual cases (from the New York Times Coronavirus (Covid-19) Data in the United States, as described above).
@@ -138,6 +146,7 @@ Future cases, hospitalizations, ICU patient counts, and deaths are predicted on 
 
 
 _State descriptions_
+
 The following bullets summarize the states of the SEIR model and how individuals progress through them (see tables below for details on each parameter):
 
 - Susceptible: Starting state for all individuals in a fully predictive run and, in cases where the model run is initiated base on prior cases, the susceptible group includes the proportion of individuals not previously sick.
@@ -151,13 +160,16 @@ The following bullets summarize the states of the SEIR model and how individuals
 
 
 _Modeling disease characteristics_
+
 Values for the epidemiological model parameters are based on the best available data and academic consensus, wherever possible. Changes in parameters related to policy implementation are based on the expected changes in contact rate and transmission anticipated corresponding to policy status under each category of social distancing (lockdown, stay-at-home, safer-at-home, partially open and open; see above for definitions). These estimates are calculated as a difference in contact rate and transmission based on reproductive rate (R), the number of new cases that result from one individual infecting others. Reproductive rate is an inferred model outcome and is not an input of the SEIR model but is used to calibrate the model state to produce a transmission rate (β) for the given conditions in the table below. The probability of transmission (β), representing the likelihood that a susceptible individual is exposed to someone who is infectious (and the likelihood of infection given exposure, which is not adjusted directly in the model), is set dynamically based on the policies in place at a given time. Thus, the distancing level captured from policies is considered in the transmission dynamics for future COVID spread (e.g., stay-at-home more stringently restricts contacts between individuals and suppresses transmission more than a safer-at-home condition).
 
 _What if we had done nothing? (Counterfactual)_
+
 As the outbreak has unfolded, we have added a counterfactual analysis to assess how the event would have unfolded had states not implemented any policies. The counterfactual scenario is modeled assuming contact rate remained elevated throughout the Spring and early Summer of 2020, as those states had not implemented social distancing policies. We initialize the model on the first day each state hit 100 cumulative cases. We then project forward assuming an R value of 2.1, slightly lower than that before the event to account for changes in behavior as would be expected with only reports of disease threat (as seen in states without social distancing policies, but that still showed a reduction in mobility.) In those states who experienced large, early outbreaks, defined by more than 1,000 cumulative cases before May 15th, (New Jersey and New York) we initialize the counterfactual at the end of these outbreaks to better predict the effect of policies for the next wave. In addition to plotting the counterfactual against the actuals (“What if we had done nothing?”), we present the difference in current actual caseload against the modelled caseload and the modelled number of deaths at the upper right of the chart. Note that the caseload compares today against the “What if” scenario today; for deaths, this value is adjusted to account for modelled fatalities expected to result from the modelled number of cases. (We report the modelled deaths as those 30 days in the future to capture the average 30 day lag from start of infection to death.)
 
 
 _Policies (distancing level)_
+
 The AMP Policy Model includes policies implemented historically, as captured by the ‘Distancing level’, and allows users to add policies in the future. Future policy interventions update model parameters (specifically the transmission level, or Beta) to reflect the increase or decrease in intra-personal contact level as a result of policies that change the level of social distancing. This feature provides the ability to analyze the relative, future impact of policy implementation on caseload.
 
 i
